@@ -1,36 +1,45 @@
-import { Container, Content, Row, Column } from "./styles";
+import { Container, Content, Row, } from "./styles";
 import Input from "./components/Input";
 import Button from "./components/Button";
-
+import  { useState } from "react";
 const App = () => {
+  const [currentNumber, setCurrentNumber] = useState('0');
+
+  const handleClear = () => {
+    setCurrentNumber('0');
+  }
+
+  const handleAddNumber = (number) => {
+      setCurrentNumber (prev => `${number}${prev}`);
+  }
   return (
     <div className="App">
       <Container> 
         <Content>
-          <Input />
+          <Input value={currentNumber}/> 
            <Row>
-            <Button label="x" />
-            <Button label="/" />
-            <Button label="C" />
-            <Button label="X" />
+            <Button onClick={() => handleAddNumber('x')} label="x" />
+            <Button onClick={() => handleAddNumber('/')} label="/" />
+            <Button onClick={handleClear} label="C" />
+            <Button onClick={() => handleAddNumber('')} label="X" />
           </Row>
           <Row>
-            <Button label="7" />
-            <Button label="8" />
-            <Button label="9" />
-            <Button label="-" />
+            <Button onClick={() => handleAddNumber('7')} label="7" />
+            <Button onClick={() => handleAddNumber('8')} label="8" />
+            <Button onClick={() => handleAddNumber('9')} label="9" />
+            <Button onClick={() => handleAddNumber('-')} label="-" />
           </Row>
           <Row>
-            <Button label="4" />
-            <Button label="5" />
-            <Button label="6" />
-            <Button label="+" />
+            <Button onClick={() => handleAddNumber('4')} label="4" />
+            <Button onClick={() => handleAddNumber('5')} label="5" />
+            <Button onClick={() => handleAddNumber('6')} label="6" />
+            <Button onClick={() => handleAddNumber('+')} label="+" />
           </Row>
           <Row>
-            <Button label="1" />
-            <Button label="2" />
-            <Button label="3" />
-            <Button label="=" />
+            <Button onClick={() => handleAddNumber('1')} label="1" />
+            <Button onClick={() => handleAddNumber('2')} label="2" />
+            <Button onClick={() => handleAddNumber('3')} label="3" />
+            <Button onClick={() => handleAddNumber('=')} label="=" />
           </Row>
 
         </Content>  

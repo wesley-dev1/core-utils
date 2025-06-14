@@ -4,7 +4,7 @@ import styled from 'styled-components'
 export const InputContainer = styled.div`
     width: 100%;
     height: 75px;
-    background-color: #AAFFAA;
+    background-color: #AAAAFF;
 
     display: flex;
     align-items: center;
@@ -22,5 +22,7 @@ export const InputContainer = styled.div`
         clear: both;
         font-size: 24px;
         font-family: Roboto, sans-serif;
+        padding: 0 10px;
+
     }
 `
